@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastrar Autor - O Povo News</title>
 
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -50,7 +49,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center mt-4">
-                    <!-- <a href="index.php" class="btn btn-outline-secondary">Voltar</a> -->
+                    <a href="index.php" class="btn btn-outline-secondary">Voltar</a>
                     <button type="submit" class="btn btn-primary px-4">Cadastrar</button>
                 </div>
 
@@ -59,7 +58,6 @@
     </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
