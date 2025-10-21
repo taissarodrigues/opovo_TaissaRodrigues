@@ -482,3 +482,17 @@ tempCodeRunnerFile.php
 # Caches locais/comuns
 .gradle/
 .cache/
+
+# Sistema e caches globais
+.cache/
+.gradle/
+.cocoapods/
+Pods/
+**/CocoaPods-version.yml
+**/CocoaPods-version.yml.etag
+**/all_pods_versions_*.txt
+**/DerivedData/
+**/.tooling/
+**/.gradle/
+**/.idea/
+**/.DS_Store
