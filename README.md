@@ -76,7 +76,7 @@ Testes de estilo e comportamento:
 
 * Campos obrigatórios exibem mensagens nativas (`reportValidity()`)
 * JavaScript garante padronização entre navegadores
-* PHP aplica revalidação no backend (evita bypass de formulário)
+* PHP aplica revalidação no backend
 
 ##  Implantação
 
@@ -101,6 +101,6 @@ Para colocar o projeto no ar:
 
 * Taíssa Rodrigues — Desenvolvimento
   
-Nota sobre o desenvolvimento: Este projeto foi minha primeira oportunidade de aplicar PHP em uma aplicação web completa. Aproveitei o desafio para estudar e implementar a arquitetura MVC. Já tinha aplicado  MVC em Swift, foi muito interessante perceber como o conceito se aplica de forma parecida em outra linguagem. Achei o PHP bem acessível e intuitivo. Foi uma ótima experiência de aprendizado, e gostei bastante de implementar as validações e organizar as camadas do projeto
+Nota sobre o desenvolvimento: Este projeto foi minha primeira oportunidade de aplicar PHP em uma aplicação web completa,aproveitei o desafio para estudar e implementar a arquitetura MVC. Eu já tinha aplicado  MVC em Swift, foi bastante interessante perceber como o conceito se aplica de forma parecida em outra/s linguagens. Foi uma ótima experiência realizar esse teste, e gostei bastante de implementar as validações e organizar as camadas do projeto
 
 ---
