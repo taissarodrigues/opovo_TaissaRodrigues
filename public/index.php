@@ -5,30 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>O Povo News — Painel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/opovo_TaissaRodrigues/public/css/main.css">
 </head>
 
-<body class="bg-light">
-    <div class="container my-5">
-
-        <div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">O Povo News</h1>
-                <p class="col-lg-8 fs-5 text-muted">
-                    Gerencie os <strong>autores</strong> e encontre rapidamente quem você precisa.
-                </p>
-                <div class="d-flex gap-3">
-                    <a href="/opovo_TaissaRodrigues/public/authors/create.php" class="btn btn-primary btn-lg">
-                        Cadastrar autor
-                    </a>
-                    <a href="/opovo_TaissaRodrigues/public/authors/search.php" class="btn btn-outline-secondary btn-lg">
-                        Pesquisar autores
-                    </a>
-                </div>
+<body>
+    <div class="container wide">
+        <div class="card">
+            <h1>O Povo News</h1>
+            <p class="muted">Gerencie os <strong>autores</strong> e encontre rapidamente quem você precisa.</p>
+            <div class="actions">
+                <a href="/opovo_TaissaRodrigues/public/authors/create.php" class="btn primary">Cadastrar autor</a>
+                <a href="/opovo_TaissaRodrigues/public/authors/search.php" class="btn outline">Pesquisar autores</a>
             </div>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
 </body>
 
 </html>

@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Resultado do Cadastro</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/opovo_TaissaRodrigues/public/css/main.css">
 </head>
 
-<body class="bg-light">
-    <div class="container py-5">
-        <h1 class="display-6 fw-bold mb-4">Resultado do Cadastro</h1>
+<body>
+    <div class="container narrow card">
+        <h1>Resultado do Cadastro</h1>
 
         <?php
         ini_set('display_errors', 1);
@@ -20,41 +20,30 @@
         include '../../config/database.php';
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            mensagemError('Acesse esta página enviando o formulário.', 'warning');
+            echo "<div class='alert warning'>Acesse esta página enviando o formulário.</div>";
         } else {
-            $nome            = trim($_POST['name'] ?? '');
-            $telefone        = trim($_POST['telefone'] ?? '');
-            $email           = trim($_POST['email'] ?? '');
+            $nome = trim($_POST['name'] ?? '');
+            $telefone = trim($_POST['telefone'] ?? '');
+            $email = trim($_POST['email'] ?? '');
             $data_nascimento = trim($_POST['data_nascimento'] ?? '');
-            $role            = trim($_POST['role'] ?? '');
+            $role = trim($_POST['role'] ?? '');
 
             if ($nome === '' || $email === '') {
-                mensagemError('Preencha nome e e-mail.', 'warning');
+                echo "<div class='alert warning'>Preencha nome e e-mail.</div>";
             } else {
                 $sql = "INSERT INTO autores (nome, telefone, email, data_nascimento, role)
-                VALUES (?, ?, ?, NULLIF(?, ''), ?)";
-
+                  VALUES (?, ?, ?, NULLIF(?, ''), ?)";
                 if ($stmt = mysqli_prepare($conn, $sql)) {
-                    mysqli_stmt_bind_param(
-                        $stmt,
-                        "sssss",
-                        $nome,
-                        $telefone,
-                        $email,
-                        $data_nascimento,
-                        $role
-                    );
-
+                    mysqli_stmt_bind_param($stmt, "sssss", $nome, $telefone, $email, $data_nascimento, $role);
                     $ok = mysqli_stmt_execute($stmt);
                     mysqli_stmt_close($stmt);
-
                     if ($ok) {
-                        mensagemError("{$nome} cadastrado com sucesso!", 'success');
+                        echo "<div class='alert success'>{$nome} cadastrado com sucesso!</div>";
                     } else {
-                        mensagemError('Erro ao cadastrar: ' . mysqli_error($conn), 'danger');
+                        echo "<div class='alert danger'>Erro ao cadastrar: " . htmlspecialchars(mysqli_error($conn)) . "</div>";
                     }
                 } else {
-                    mensagemError('Erro ao preparar a operação: ' . mysqli_error($conn), 'danger');
+                    echo "<div class='alert danger'>Erro ao preparar a operação: " . htmlspecialchars(mysqli_error($conn)) . "</div>";
                 }
             }
         }
@@ -63,9 +52,8 @@
         }
         ?>
 
-        <a href="create.php" class="btn btn-secondary mt-3">Voltar</a>
+        <a href="create.php" class="btn outline">Voltar</a>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
