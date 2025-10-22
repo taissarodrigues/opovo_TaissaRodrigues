@@ -12,10 +12,8 @@
     <?php
     require_once '../../config/database.php';
 
-    // termo da busca
     $pesquisa = trim($_POST['busca'] ?? '');
 
-    // busca com LIKE (segura)
     if ($pesquisa !== '') {
         $sql = "SELECT * FROM autores
             WHERE nome LIKE ? OR email LIKE ? OR role LIKE ?
@@ -84,7 +82,7 @@
                             <td><?= htmlspecialchars($data_nascimento) ?></td>
                             <td><span class="tag"><?= htmlspecialchars($role) ?></span></td>
                             <td>
-                                <a href="editAuthors.php?id=<?= $cod_pessoa ?>" class="btn small edit">Editar</a>
+                                <a href="edit.php?id=<?= $cod_pessoa ?>" class="btn small edit">Editar</a>
                                 <a href="delete.php?id=<?= $cod_pessoa ?>" class="btn small delete js-open-delete"
                                     data-id="<?= $cod_pessoa ?>" data-name="<?= htmlspecialchars($nome, ENT_QUOTES) ?>">
                                     Excluir
@@ -103,8 +101,9 @@
             </tbody>
         </table>
 
-        <div class="mt-4">
-            <a href="/opovo_TaissaRodrigues/public/index.php" class="btn outline">Voltar ao painel</a>
+        <div class="mt-4" style="display: flex; justify-content: center; margin-top: 40px;">
+            <a href="/opovo_TaissaRodrigues/public/index.php" class="btn outline" style="padding: 12px 24px;">Voltar ao
+                painel</a>
         </div>
     </div>
 

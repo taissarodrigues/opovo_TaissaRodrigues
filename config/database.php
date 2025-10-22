@@ -1,23 +1,26 @@
 <?php
-$server = "localhost";
-$user   = "root";
-$pass   = "";
-$dbname = "empresa";
+function db(): mysqli
+{
+    $server = "localhost";
+    $user   = "root";
+    $pass   = "";
+    $dbname = "empresa";
 
-$conn = mysqli_connect($server, $user, $pass, $dbname);
-if (!$conn) {
-    die("Erro na conexão: " . mysqli_connect_error());
+    $conn = mysqli_connect($server, $user, $pass, $dbname);
+    if (!$conn) {
+        die("Erro na conexão: " . mysqli_connect_error());
+    }
+    return $conn;
 }
 
 function mensagemError($texto, $tipo)
 {
-    echo "<div class='alert alert-$tipo role = 'alert'> $texto
-    </div>";
+    echo "<div class='alert {$tipo}'>{$texto}</div>";
 }
 
 function mostra_data($data)
 {
+    if (!$data) return '';
     $d = explode('-', $data);
-    $escreve = $d[2] . '/' . $d[1] . '/' . $d[0];
-    return $escreve;
+    return (count($d) === 3) ? "{$d[2]}/{$d[1]}/{$d[0]}" : $data;
 }

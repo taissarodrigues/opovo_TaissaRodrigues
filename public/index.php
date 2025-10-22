@@ -1,24 +1,46 @@
-<!doctype html>
-<html lang="pt-BR">
+<?php
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>O Povo News — Painel</title>
-    <link rel="stylesheet" href="/opovo_TaissaRodrigues/public/css/main.css">
-</head>
+declare(strict_types=1);
 
-<body>
-    <div class="container wide">
-        <div class="card">
-            <h1>O Povo News</h1>
-            <p class="muted">Gerencie os <strong>autores</strong> e encontre rapidamente quem você precisa.</p>
-            <div class="actions">
-                <a href="/opovo_TaissaRodrigues/public/authors/create.php" class="btn primary">Cadastrar autor</a>
-                <a href="/opovo_TaissaRodrigues/public/authors/search.php" class="btn outline">Pesquisar autores</a>
-            </div>
-        </div>
-    </div>
-</body>
+$BASE_PATH = dirname(__DIR__);
 
-</html>
+require_once $BASE_PATH . '/config/database.php';
+require_once $BASE_PATH . '/app/Controllers/HomeController.php';
+require_once $BASE_PATH . '/app/Controllers/AuthorsController.php';
+require_once $BASE_PATH . '/app/Models/Author.php';
+
+use App\Controllers\HomeController;
+use App\Controllers\AuthorsController;
+
+// o parâmetro ?r= define a rota.
+// permite navegar entre as telas com os cases.
+$route = $_GET['r'] ?? 'home';
+
+switch ($route) {
+    case 'home':
+        (new HomeController())->index();
+        break;
+
+    case 'authors/index':
+        (new AuthorsController())->index();
+        break;
+    case 'authors/create':
+        (new AuthorsController())->create();
+        break;
+    case 'authors/store':
+        (new AuthorsController())->store();
+        break;
+    case 'authors/edit':
+        (new AuthorsController())->edit();
+        break;
+    case 'authors/update':
+        (new AuthorsController())->update();
+        break;
+    case 'authors/delete':
+        (new AuthorsController())->delete();
+        break;
+
+    default:
+        http_response_code(404);
+        echo "<h1>404</h1><p>Rota não encontrada.</p>";
+}
