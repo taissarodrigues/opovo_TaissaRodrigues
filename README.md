@@ -9,6 +9,7 @@ Aplicação web desenvolvida em **PHP** com arquitetura **MVC**, que permite o *
 O projeto foi criado para demonstrar **boas práticas de organização de código**, **design de interface** e **validações no frontend e backend**, para o teste técnico para a vaga de aprendiz de tecnologia.
 
 
+##  Demostração CRUH: https://youtu.be/foYycWflAEs
 
 ##  Começando
 
