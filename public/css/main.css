@@ -213,3 +213,95 @@ select:focus {
     background: var(--warning);
     color: #222;
 }
+
+/* Overlay */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .35);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+}
+
+.modal-overlay.is-open {
+    display: flex;
+}
+
+/* Caixa do modal */
+.modal {
+    width: 100%;
+    max-width: 520px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+    overflow: hidden;
+    animation: pop .12s ease-out;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.98);
+        opacity: .8
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+/* Cabeçalho */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.modal-close {
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Corpo */
+.modal-body {
+    padding: 18px 20px;
+}
+
+.modal-name {
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+/* Rodapé */
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 14px 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Botões utilitários já no seu projeto – adições para “danger” */
+.btn.danger {
+    background: #dc3545;
+    color: #fff;
+    border: 1px solid #dc3545;
+}
+
+.btn.danger:hover {
+    filter: brightness(.95);
+}
