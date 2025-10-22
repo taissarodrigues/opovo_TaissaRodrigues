@@ -1,5 +1,4 @@
 <?php
-// helpers visuais para alertas opcionais
 function alertBox(?string $msg): string
 {
     if (!$msg) return '';

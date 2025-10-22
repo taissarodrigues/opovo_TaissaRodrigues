@@ -32,7 +32,7 @@
                 echo "<div class='alert warning'>Preencha nome e e-mail.</div>";
             } else {
                 $sql = "INSERT INTO autores (nome, telefone, email, data_nascimento, role)
-                  VALUES (?, ?, ?, NULLIF(?, ''), ?)";
+                VALUES (?, ?, ?, NULLIF(?, ''), ?)";
                 if ($stmt = mysqli_prepare($conn, $sql)) {
                     mysqli_stmt_bind_param($stmt, "sssss", $nome, $telefone, $email, $data_nascimento, $role);
                     $ok = mysqli_stmt_execute($stmt);

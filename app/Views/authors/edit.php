@@ -1,6 +1,4 @@
 <?php
-// View: authors/edit
-// Espera a variável $autor fornecida pelo controller (App\Controllers\AuthorsController::edit)
 function selected_opt($current, $value)
 {
   return $current === $value ? 'selected' : '';
@@ -76,7 +74,6 @@ function selected_opt($current, $value)
     dn.max = `${yyyy}-${mm}-${dd}`;
   })();
 
-  // Máscara de telefone amigável
   const tel = document.getElementById('telefone');
   tel.addEventListener('input', () => {
     let v = tel.value.replace(/\D/g, '').slice(0, 11);
@@ -95,7 +92,6 @@ function selected_opt($current, $value)
     }
   });
 
-  // Validação extra da data no submit
   document.getElementById('authorEditForm').addEventListener('submit', (e) => {
     const form = e.currentTarget;
     const dn = document.getElementById('data_nascimento');

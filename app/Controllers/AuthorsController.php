@@ -59,8 +59,6 @@ class AuthorsController
 
     public function index(): void
     {
-        // Observação: aceitamos busca via POST (form) e GET (?busca=) para permitir links compartilháveis.
-        // Aceita busca por POST (form) e GET (?busca=)
         $q = trim($_POST['busca'] ?? ($_GET['busca'] ?? ''));
 
         $res  = ($q !== '') ? $this->author->search($q) : $this->author->all();
@@ -72,7 +70,6 @@ class AuthorsController
         $msg = ($_GET['msg'] ?? null);
         $this->render('authors/index', compact('rows', 'q', 'msg'));
 
-        // Fecha a conexão no fim do ciclo do controller
         mysqli_close($this->conn);
     }
 
@@ -84,7 +81,6 @@ class AuthorsController
 
     public function store(): void
     {
-        // Sanitização/normalização leve
         $data = [
             'name'            => trim($_POST['name'] ?? ''),
             'telefone'        => trim($_POST['telefone'] ?? ''),
@@ -93,7 +89,7 @@ class AuthorsController
             'role'            => trim($_POST['role'] ?? ''),
         ];
 
-        // normaliza telefone para um formato padrão; se inválido, fica vazio e cai na validação
+        // formato valido para telefone, se for invalido, fica vazio.
         $data['telefone'] = $this->normalizePhone($data['telefone']);
 
         if ($data['name'] === '' || mb_strlen($data['name']) < 3) {
@@ -142,7 +138,7 @@ class AuthorsController
             'role'            => trim($_POST['role'] ?? ''),
         ];
 
-        // normaliza telefone para um formato padrão, se inválido, fica vazio e cai na validação
+        // formato valido para telefone, se for invalido, fica vazio.
         $data['telefone'] = $this->normalizePhone($data['telefone']);
 
         if ($id <= 0) {
@@ -165,7 +161,7 @@ class AuthorsController
 
     public function delete(): void
     {
-        //  evita exclusão por clique acidental 
+        //  evita exclusão caso o user clique acidentalmente, por isso a confirmação.
         $id = (int)($_POST['id'] ?? 0);
         if ($id > 0) {
             $this->author->delete($id);
