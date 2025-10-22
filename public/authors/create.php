@@ -49,8 +49,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center mt-4">
-                    <a href="index.php" class="btn btn-outline-secondary">Voltar</a>
-                    <button type="submit" class="btn btn-primary px-4">Cadastrar</button>
+                    <a href="/opovo_TaissaRodrigues/public/index.php" class="btn btn-outline-secondary">Voltar</a>
                 </div>
 
         </form>
