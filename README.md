@@ -1,4 +1,4 @@
-# Sistema de Gerenciamento de Autores
+# Sistema de Gerenciamento de Autores - php
 
 ![PHP](https://img.shields.io/badge/PHP-8.2-blue?style=for-the-badge&logo=php)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?style=for-the-badge&logo=mysql)
