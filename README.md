@@ -52,15 +52,57 @@ O sistema garante a integridade dos dados através de múltiplas camadas de prot
    * Crie um banco de dados denominado `empresa`.
    * Importe o arquivo SQL localizado no diretório `/config/empresa.sql`.
 
-3. **Configuração de Conexão:**
-   * Verifique e ajuste as credenciais de acesso no arquivo `/config/database.php`.
+2.  **Acesse o diretório**
+    ```bash
+    cd opovo_TaissaRodrigues
+    ```
 
-4. **Acesso ao Sistema:**
-   Navegue até o endereço local correspondente:
-[http://localhost/sistema-gerenciamento-autores/public/
-](http://localhost/opovo_TaissaRodrigues/public/)
----
+3.  **Inicie o servidor Apache e MySQL no XAMPP**
 
+4.  **Acesse no navegador:**
+    `http://localhost/opovo_TaissaRodrigues/public/`
+
+5.  **Crie o banco de dados:**
+    a. Abra o `phpMyAdmin`
+    b. Crie um banco chamado `empresa`
+    c. Importe o arquivo `empresa.sql` localizado em `/config/`
+    d. Verifique se as credenciais em `/config/database.php` estão corretas:
+
+    ```php
+    $server = "localhost";
+    $user   = "root";
+    $pass   = "";
+    $dbname = "empresa";
+    ```
+
+##  Executando os testes
+
+O sistema conta com validações integradas e testes manuais de entrada de dados, que garantem consistência entre as camadas de View, Controller e Model.
+
+### Analise os testes de ponta a ponta
+
+Testes de ponta a ponta (funcionais):
+
+* Validação de nome completo com no mínimo 3 caracteres
+* Verificação de e-mail válido com `filter_var()`
+* Máscara de telefone dinâmica no formato `(XX) XXXXX-XXXX`
+* Bloqueio de datas futuras e de autores com menos de 18 anos
+* Checagem de campos obrigatórios antes do envio do formulário
+
+Testes de estilo e comportamento:
+
+* Campos obrigatórios exibem mensagens nativas (`reportValidity()`)
+* JavaScript garante padronização entre navegadores
+* PHP aplica revalidação no backend
+
+##  Implantação
+
+Para colocar o projeto no ar:
+
+1.  Copie o conteúdo da pasta `/public` para o diretório público do seu servidor (ex: `/var/www/html`)
+2.  Configure o banco MySQL com o mesmo script usado em desenvolvimento
+3.  Ajuste as credenciais no arquivo `/config/database.php`
+4.  Certifique-se de que o PHP e o MySQL estão habilitados no servidor
 ## Arquitetura Utilizada
 
 A estrutura do projeto segue a divisão de responsabilidades do padrão MVC:
