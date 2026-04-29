@@ -57,3 +57,17 @@ O sistema garante a integridade dos dados através de múltiplas camadas de prot
 
 4. **Acesso ao Sistema:**
    Navegue até o endereço local correspondente:
+[http://localhost/sistema-gerenciamento-autores/public/
+](http://localhost/opovo_TaissaRodrigues/public/)
+---
+
+## Arquitetura Utilizada
+
+A estrutura do projeto segue a divisão de responsabilidades do padrão MVC:
+
+* **Model:** Responsável pela conexão com o banco de dados e regras de persistência.
+* **View:** Camada de interface desenvolvida em HTML5 e CSS3.
+* **Controller:** Atua como intermediário no processamento de requisições e gerenciamento do fluxo da aplicação.
+
+---
+Desenvolvido por [Taíssa Rodrigues](https://github.com/taissarodrigues)
